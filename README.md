@@ -15,6 +15,7 @@ employee_asset/
 ├── init-db.sh           # PostgreSQL bootstrap script
 ├── extra-addons/        # Your custom Odoo apps go here
 │   └── .gitkeep
+````
 
 ---
 
@@ -78,7 +79,3 @@ docker compose down -v
 * PostgreSQL: `localhost:5444`
 * View logs: `docker compose logs -f`
 * Check DB health: `docker compose ps`
-
-```
-
----
