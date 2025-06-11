@@ -1,6 +1,3 @@
----
-
-````md
 # 🐘 Odoo + PostgreSQL Docker Development Environment
 
 A minimal, secure, and extensible Docker setup for developing custom Odoo modules.
@@ -18,7 +15,6 @@ employee_asset/
 ├── init-db.sh           # PostgreSQL bootstrap script
 ├── extra-addons/        # Your custom Odoo apps go here
 │   └── .gitkeep
-````md
 
 ---
 
