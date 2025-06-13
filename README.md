@@ -7,7 +7,7 @@ A minimal, secure, and extensible Docker setup for developing custom Odoo module
 ## 🧱 Project Structure
 
 ```text
-employee_asset/
+project_repo/
 ├── docker-compose.yml
 ├── .env.example
 ├── README.md
@@ -24,8 +24,8 @@ employee_asset/
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/abdi-bb/employee_asset
-cd employee_asset
+git clone https://github.com/abdi-bb/project_repo
+cd project_repo
 ```
 
 2. **Set up your environment**
@@ -51,13 +51,19 @@ First run will initialize:
 
 ## 🔧 Working with Addons
 
-* Create a new addon:
+### ➕ Create a new addon
 
 ```bash
-docker compose run --rm odoo_app odoo scaffold my_module /mnt/extra-addons
+docker compose run --rm odoo odoo scaffold my_module /mnt/extra-addons/
 ```
 
-* Fix local permissions:
+> **In case you face permission issues**, run it as root inside the container:
+
+```bash
+docker compose run --rm --user root odoo odoo scaffold my_module /mnt/extra-addons/
+```
+
+### 🔐 Fix local permissions (optional)
 
 ```bash
 sudo chown -R $USER:$USER extra-addons/
