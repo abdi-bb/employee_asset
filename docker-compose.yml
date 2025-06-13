@@ -1,9 +1,11 @@
-version: '3.1'
+volumes:
+  db-data: {}
+  web-data: {}
 
 services:
   db:
     image: postgres:17
-    container_name: postgres_db
+    container_name: emp_postgres
     restart: always
     ports:
       - "5444:5432"
@@ -20,7 +22,7 @@ services:
 
   odoo:
     image: odoo:17.0
-    container_name: odoo_app
+    container_name: emp_odoo
     restart: always
     ports:
       - "8069:8069"
@@ -31,20 +33,9 @@ services:
       - ./extra-addons:/mnt/extra-addons
     depends_on:
       - db
-    command: >
-      odoo
-      --db_host=db
-      --db_port=5432
-      --db_user=${ODOO_DB_USER}
-      --db_password=${ODOO_DB_PASSWORD}
-      -i base
-      -d ${ODOO_DB_NAME}
+    command: ["-i", "base", "-d", "${PROJECT_DB}"]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8069"]
       interval: 15s
       timeout: 10s
       retries: 5
-
-volumes:
-  db-data:
-  web-data:
