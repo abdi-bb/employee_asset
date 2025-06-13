@@ -7,7 +7,7 @@ A minimal, secure, and extensible Docker setup for developing custom Odoo module
 ## 🧱 Project Structure
 
 ```text
-employee_asset/
+project_repo/
 ├── docker-compose.yml
 ├── .env.example
 ├── README.md
@@ -24,8 +24,8 @@ employee_asset/
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/abdi-bb/employee_asset
-cd employee_asset
+git clone https://github.com/abdi-bb/project_repo
+cd project_repo
 ```
 
 2. **Set up your environment**
